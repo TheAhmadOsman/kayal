@@ -55,12 +55,13 @@ h1, h2, h3, h4, h5, h6 {
   line-height: normal;
 }
 
-h1::before { content: '# '; }
+/* TODO: In case you wanna remove the hashes */
+/* h1::before { content: '# '; }
 h2::before { content: '## '; }
 h3::before { content: '### '; }
 h4::before { content: '#### '; }
 h5::before { content: '##### '; }
-h6::before { content: '###### '; }
+h6::before { content: '###### '; } */
 
 ul {
   list-style-type: none;
@@ -444,10 +445,12 @@ body:not(.dark) #sun {
 .lst-card li h2,
 .lst-card li h3 {
   margin: 0;
+  margin-bottom: 0.12em;
 }
 
 .lst-card li p {
-  margin: 0;
+  margin: 0.1em;
+  margin-bottom: 0.1em;
 }
 
 /* Page */
@@ -844,7 +847,9 @@ pre code::-webkit-scrollbar-thumb:hover {
 
 .headline {
   font-weight: bold;
-  font-size: 1.05em;
+  font-size: 1.30em;
+  color: var(--tertiary-color);
+  margin-left: 100px;
 }
 
 .side-menu {
