@@ -207,15 +207,16 @@ details[open] div {
   display: inline-flex;
   align-items: center;
   color: var(--tertiary-color);
-  font-size: 1.5rem;
+  font-size: 1.4rem;
   font-weight: bold;
   border-bottom: none;
 }
 
 .title img {
   margin-right: 0.2em;
+  margin-top: 0.2em;
   display: inline;
-  width: 32px;
+  width: 64px;
   height: auto;
 }
 
@@ -848,9 +849,9 @@ pre code::-webkit-scrollbar-thumb:hover {
 
 .headline {
   font-weight: bold;
-  font-size: 1.30em;
+  font-size: 1.1em;
   color: var(--tertiary-color);
-  margin-left: 100px;
+  margin-left: 30px;
 }
 
 .side-menu {
