@@ -461,6 +461,7 @@ body:not(.dark) #sun {
 .pg-title {
   padding: 0;
   margin: 0px;
+  margin-bottom: 0.25em;
 }
 
 /* Meta */
