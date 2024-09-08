@@ -1,5 +1,5 @@
-{{ template "_internal/opengraph.html" . }}
-<!-- 
+<!-- {{ template "_internal/opengraph.html" . }} -->
+
 <meta property="og:url" content="{{ .Permalink }}">
 
 {{- with or site.Title site.Params.title | plainify }}
@@ -10,7 +10,7 @@
 <meta property="og:title" content="{{ . }}">
 {{- end }}
 
-{{- with or .Description .Summary site.Params.description | plainify | htmlUnescape | chomp }}
+{{- with or .Description site.Params.description | plainify | htmlUnescape | chomp }}
 <meta property="og:description" content="{{ . }}">
 {{- end }}
 
@@ -73,4 +73,4 @@
 {{- end }}
 {{- end }}
 {{- end }}
-{{- end }} -->
+{{- end }}
