@@ -23,6 +23,13 @@
 
 {{ .Content }}
 
+{{/* Socials */}}
+{{ if .Params.showSocials | default (.Site.Params.article.showSocials | default false ) }}
+  <div class="socials">
+  {{ partial "home/socials.html" . }}
+  </div>
+{{ end }}
+
 {{/* Pagination */}}
 {{ partial "single/pagination.html" . }}
 

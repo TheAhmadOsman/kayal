@@ -397,6 +397,12 @@ body:not(.dark) #sun {
   border-bottom: 2px solid var(--secondary-color);
 }
 
+.socials-footer-icon svg {
+  height:0.5em;
+  width:0.5em;
+  border-bottom: 2px solid var(--secondary-color);
+}
+
 /* List */
 .lst-content {
   margin-top: 2rem;
