@@ -19,11 +19,9 @@
 <meta name="twitter:site:id" content="@TheAhmadOsman">
 <meta name="twitter:creator" content="@TheAhmadOsman">
 {{- end }}
-
-{{- with or $title .Title site.Title site.Params.title | plainify }}
-<meta name="twitter:title" content="{{ . }}">
-{{- end }}
-
-{{- with or .Description site.Params.description | plainify | htmlUnescape | chomp }}
-<meta name="twitter:description" content="{{ . }}">
-{{- end }}
+{{ if .IsHome }}
+{{- with or .Title site.Title site.Params.title | plainify }}<meta name="twitter:title" content="{{ . }}">{{ end }}
+{{ else }}
+{{- with or $title .Title site.Title site.Params.title | plainify }}<meta name="twitter:title" content="{{ . }}">{{ end }}
+{{ end }}
+{{- with or .Description site.Params.description | plainify | htmlUnescape | chomp }}<meta name="twitter:description" content="{{ . }}">{{- end }}

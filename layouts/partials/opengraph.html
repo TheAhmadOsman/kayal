@@ -11,9 +11,10 @@
 {{- with or site.Title site.Params.title | plainify }}
 <meta property="og:site_name" content="{{ . }}">
 {{- end }}
-
-{{- with or $title .Title site.Title site.Params.title | plainify }}
-<meta property="og:title" content="{{ . }}">
+{{ if .IsHome }}
+{{- with or .Title site.Title site.Params.title | plainify }}<meta property="og:title" content="{{ . }}">{{ end }}
+{{ else }}
+{{- with or $title .Title site.Title site.Params.title | plainify }}<meta property="og:title" content="{{ . }}">{{- end }}
 {{- end }}
 
 {{- with or .Description site.Params.description | plainify | htmlUnescape | chomp }}
