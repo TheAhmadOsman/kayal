@@ -1,5 +1,11 @@
 <!-- {{ template "_internal/twitter_cards.html" . }} -->
 
+{{- $title := .Title | emojify -}}
+{{- if .Params.Subtitle }}
+  {{- $title = printf "%s: %s" $title (.Params.Subtitle | emojify) -}}
+{{- end }}
+{{- $title = printf "%s &middot; %s" $title (.Site.Title | emojify) -}}
+
 {{- $images := partial "_funcs/get-page-images" . }}
 {{- with index $images 0 }}
 <meta name="twitter:card" content="summary_large_image">
@@ -14,7 +20,7 @@
 <meta name="twitter:creator" content="@TheAhmadOsman">
 {{- end }}
 
-{{- with or .Title site.Title site.Params.title | plainify }}
+{{- with or $title .Title site.Title site.Params.title | plainify }}
 <meta name="twitter:title" content="{{ . }}">
 {{- end }}
 

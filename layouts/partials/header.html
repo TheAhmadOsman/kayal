@@ -10,7 +10,7 @@
     <span>
       {{ .Site.Title | emojify }}
       <br>
-      {{/* headline */}}
+      {{/* Website Sub-title */}}
       {{ with .Site.Params.subtitle }}
         <span class="subtitle mm-normal">{{ .  | emojify | markdownify }}</span>
       {{ end }}

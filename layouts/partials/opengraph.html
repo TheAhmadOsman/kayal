@@ -1,12 +1,18 @@
 <!-- {{ template "_internal/opengraph.html" . }} -->
 
+{{- $title := .Title | emojify -}}
+{{- if .Params.Subtitle }}
+  {{- $title = printf "%s: %s" $title (.Params.Subtitle | emojify) -}}
+{{- end }}
+{{- $title = printf "%s &middot; %s" $title (.Site.Title | emojify) -}}
+
 <meta property="og:url" content="{{ .Permalink }}">
 
 {{- with or site.Title site.Params.title | plainify }}
 <meta property="og:site_name" content="{{ . }}">
 {{- end }}
 
-{{- with or .Title site.Title site.Params.title | plainify }}
+{{- with or $title .Title site.Title site.Params.title | plainify }}
 <meta property="og:title" content="{{ . }}">
 {{- end }}
 

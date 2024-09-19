@@ -8,7 +8,7 @@
     {{ else }}
         <a href="{{ .RelPermalink }}">
     {{ end }}
-    {{ .LinkTitle | emojify }} </a>
+    {{ .LinkTitle | emojify }}: {{ if .Params.subtitle }}{{ .Params.subtitle | emojify }} {{ end }} </a>
     </h{{$lvl}}>
     {{ partial "single/meta.html" . }}
     {{ template "partials/home/pg-desc.html" . }}
