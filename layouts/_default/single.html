@@ -1,11 +1,5 @@
 {{ define "main" }}
 
-{{/* Cover Image */}}
-{{ if .Params.coverImg }}
-  {{ $imgData := dict "Page" . "URL" .Params.coverImg "Alt" "Cover Image" "Style" "cover-img" }}
-  {{ partial "image-renderer.html" $imgData }}
-{{ end }}
-
 {{/* Breadcrumbs */}}
 {{ if .Params.showBreadcrumbs | default (.Site.Params.article.showBreadcrumbs | default false ) }}
 {{ partial "breadcrumbs.html" . }}
@@ -13,20 +7,39 @@
 
 <h1 class="pg-title">{{ .Title | emojify }}</h1>
 
+{{ if .Params.subtitle }}
+<h2 class="pg-subtitle">{{ .Params.subtitle | emojify }}</h2>
+{{ end }}
+
+{{ if .Params.showBreakingLine | default (.Site.Params.article.showBreakingLine | default false ) }}
+<hr class="header-hr">
+{{ end }}
+
 {{/* Meta */}}
 <div class="meta">
+  <p>
   {{ partial "single/meta.html" . }}
   {{ partial "single/meta-tags.html" . }}
+  </p>
 </div>
 
 {{ partial "single/toc.html" . }}
+
+{{/* Cover Image */}}
+{{ if .Params.coverImg }}
+  {{ $imgData := dict "Page" . "URL" .Params.coverImg "Alt" "Cover Image" "Caption" .Params.coverImgCaption "Style" "cover-img" }}
+  {{ partial "image-renderer.html" $imgData }}
+{{ end }}
 
 {{ .Content }}
 
 {{/* Socials */}}
 {{ if .Params.showSocials | default (.Site.Params.article.showSocials | default false ) }}
+  <br>
+  <br>
   <div class="socials">
-  {{ partial "home/socials.html" . }}
+    <hr>
+    {{ partial "home/socials.html" . }}
   </div>
 {{ end }}
 

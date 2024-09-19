@@ -1,12 +1,14 @@
 :root{
   --ff: 'Ubuntu';
   --radius: 6px;
-  --primary-color: #292929;
-  --secondary-color: #dbdbd3;
-  --tertiary-color: #9c5618;
-  --link-color: #c76c1c;
-  --tertiary-color-light: #c76c1c;
-  --secondary-color-dark: #c1c1b0;
+
+  --primary-color: #012A36; /* Text */
+  --secondary-color: #FCFFEB; /* Background */
+  --secondary-color-dark: #D5B986; /* Embedded Frames */
+  --tertiary-color: #C85C2D; /* Accent: Titles, Underlines, etc... */
+  --tertiary-color-light: #D26637; /* Light Accent: Tags, etc... */
+  --link-color: #B7542A; /* Secondary */
+
   --black: #292929;
   --code-bg: #272822; /*Monokai*/
   --code-fg: #f8f8f2; /*Monokai*/

@@ -7,7 +7,14 @@
     {{ end }}
     <div class="header-cntr">
     <a class="title" href="{{ "" | relLangURL}}">
-    <span>{{ .Site.Title | emojify }}</span>
+    <span>
+      {{ .Site.Title | emojify }}
+      <br>
+      {{/* headline */}}
+      {{ with .Site.Params.subtitle }}
+        <span class="subtitle mm-normal">{{ .  | emojify | markdownify }}</span>
+      {{ end }}
+    </span>
     </a>
   <div class="menu">
   <nav id="main-menu" class="mm-normal">

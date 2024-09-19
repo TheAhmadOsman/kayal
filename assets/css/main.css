@@ -23,6 +23,10 @@ header {
   border-bottom: 1px solid var(--secondary-color-dark);
 }
 
+.header-hr {
+  opacity: 50%;
+}
+
 a {
   color: var(--primary-color);
   text-decoration: none;
@@ -48,6 +52,12 @@ footer {
   border-top: 1px solid var(--secondary-color-dark);
   margin-top: 1rem;
   padding-top: 1rem;
+}
+
+.copyright {
+  font-weight: bold;
+  font-size: 0.95em;
+  margin-left: 5px;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -224,6 +234,21 @@ details[open] div {
   color: var(--link-color);
 }
 
+.subtitle {
+  display: inline-flex;
+  align-items: right;
+  color: var(--tertiary-color);
+  font-size: 1.0rem;
+  font-weight: bold;
+  font-style: italic;
+  border-bottom: none;
+  margin-left: 15px;
+}
+
+.subtitle:hover {
+  color: var(--link-color);
+}
+
 .menu {
   display: flex;
   align-items: center;
@@ -324,6 +349,50 @@ body:not(.dark) #sun {
   display: none;
 }
 
+.description {
+  margin-top: 0.8%;
+  display: -webkit-box;
+  -webkit-line-clamp: 5; /* Number of lines to show */
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+
+  font-size: 14px; /* Set the font size */
+  font-weight: normal;
+  color: var(--primary-color);
+}
+
+.description * {
+  font-size: inherit; /* Inherit the font size from the parent */
+  font-weight: inherit; /* Inherit the font family from the parent */
+  color: inherit; /* Inherit the text color from the parent to remove link styling */
+
+  pointer-events: none; /* Make all child elements unclickable */
+  text-decoration: none; /* Remove underline from links */
+}
+
+.description a,
+.description * a {
+  pointer-events: none; /* Make all child elements unclickable */
+  text-decoration: none !important;
+  border-bottom: none;
+}
+
+.description br {
+  display: none;
+}
+
+.read-more {
+  margin-top: 0.8%;
+  text-align: right;
+}
+
+.read-more a,
+.read-more * a {
+  text-decoration: none !important;
+  border-bottom: none;
+}
+
 .menu-btn {
   color: var(--primary-color);
   background-color: var(--secondary-color);
@@ -369,6 +438,10 @@ body:not(.dark) #sun {
   font-size: 1.5rem;
 }
 
+.socials hr {
+  opacity: 50%;
+}
+
 .socials ul {
   text-align: center;
   padding: 0;
@@ -401,6 +474,11 @@ body:not(.dark) #sun {
   height:0.5em;
   width:0.5em;
   border-bottom: 2px solid var(--secondary-color);
+}
+
+#footer-socials {
+  margin-top: -18px;
+  margin-right: 5px;
 }
 
 /* List */
@@ -471,6 +549,39 @@ body:not(.dark) #sun {
   margin-bottom: 0.25em;
 }
 
+/*.pg-subtitle {
+  padding: 0;
+  margin: 0px;
+  margin-bottom: 0.25em;
+}*/
+
+.pg-subtitle {
+  padding: 0;
+  margin: 0px;
+  margin-bottom: 0.25em;
+  text-align: center; /* Center the text */
+  font-size: 20px; /* Optional: Adjust font size to make quotes more readable */
+  color: var(--primary-color);
+  opacity: 0.95; /* add transparency */
+  font-style: normal; /* Make the text italic */
+}
+
+.pg-subtitle {
+    position:relative;
+    left:-5%;
+}
+
+.pg-subtitle::before {
+    content:"❝";
+    position: inherit;
+    left: -2%;
+}
+.pg-subtitle::after {
+    content:"❞";
+    position: inherit;
+    right: -2%;
+}
+
 /* Meta */
 .meta p, .meta a {
   margin: 0;
@@ -480,11 +591,14 @@ body:not(.dark) #sun {
 .meta-icon {
   display: inline-block;
   vertical-align: bottom;
+  margin-right: 0.08em;
+  margin-left: 0.08em;
+  margin-bottom: -0.09em;
 }
 
 .meta-icon svg {
   /*margin-left: 0.2em;*/
-  padding-top: 0.25em;
+  padding-top: 0.em;
   height: 0.9em;
   width: 0.9em;
 }
@@ -502,11 +616,21 @@ body:not(.dark) #sun {
   color: black;
 }
 
+.tags {
+  display: inline-block;
+  float:right;
+  text-align: right;
+  margin-right: 0.05em;
+  margin-left: 0.05em;
+}
+
 .draft-lbl {
-  background-color: var(--tertiary-color);
+  background-color: var(--link-color);
   color: var(--black);
   padding: 2px 4px;
   border-radius: var(--radius);
+  margin-right: 0.2em;
+  margin-left: 0.2em;
 }
 
 .highlight-wrapper {

@@ -2,7 +2,6 @@
 {{ $showModDate := .Params.showModDate | default (.Site.Params.article.showModDate | default false) }}
 {{ $showReadingTime := .Params.showReadingTime | default (.Site.Params.article.showReadingTime | default true) }}
 
-<p>
 {{/* Date Reading time and Draft label */}}
 {{ if $showDate }}
   {{ $dateMachine := .Date | time.Format "2006-01-02T15:04:05-07:00" }}
@@ -17,14 +16,13 @@
   {{ end }}
 {{ end }}
 {{ if $showReadingTime }}
-  <span class="meta-icon">{{ partial "icon.html" "time" }}</span>
+   &mdash; Reading  <span class="meta-icon">{{ partial "icon.html" "time" }}</span>
   {{ if gt .ReadingTime 1 }}
-    {{ printf "%s mins" (.ReadingTime | markdownify) }}
+    {{ printf "%s minutes" (.ReadingTime | markdownify) }}
   {{ else }}
-    {{ printf "%s min" (.ReadingTime | markdownify) }}
+    {{ printf "%s minute" (.ReadingTime | markdownify) }}
   {{ end }}
 {{ end}}
 {{ if .Draft }}
-  <span class="draft-lbl"><span class="meta-icon">{{ partial "icon.html" "edit" }}</span>DRAFT</span>
+  &mdash; <span class="draft-lbl"><span class="meta-icon">{{ partial "icon.html" "edit" }}</span></span>
 {{ end }}
-</p>
