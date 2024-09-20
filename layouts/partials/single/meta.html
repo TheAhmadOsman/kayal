@@ -11,7 +11,7 @@
   {{ $dateModMachine := .Lastmod | time.Format "2006-01-02T15:04:05-07:00" }}
   {{ $dateModHuman := .Lastmod | time.Format "Jan 2, 2006" }}
   {{ if and $showModDate (ne $dateModHuman $dateHuman) }}
-    <span class="meta-icon">{{ partial "icon.html" "pencil" }}</span>
+     &mdash; <span class="meta-icon">{{ partial "icon.html" "pencil" }}</span>
     Last edited <time datetime="{{ $dateModMachine }}">{{ $dateModHuman }}</time>
   {{ end }}
 {{ end }}

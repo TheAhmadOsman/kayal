@@ -8,9 +8,15 @@
     {{ else }}
         <a href="{{ .RelPermalink }}">
     {{ end }}
-    {{ .LinkTitle | emojify }}: {{ if .Params.subtitle }}{{ .Params.subtitle | emojify }} {{ end }} </a>
+    <!-- The below line was used to connect blogpost's .Params.Title and .Params.Subtitle, before realizing there is a .LinkTitle... -->
+    <!-- {{ .LinkTitle | emojify }}: {{ if .Params.subtitle }}{{ .Params.subtitle | emojify }} {{ end }} </a> -->
+    {{ .LinkTitle | emojify }} </a>
     </h{{$lvl}}>
     {{ partial "single/meta.html" . }}
+    {{ if .Params.subtitle }}
+        <h2 class="pg-subtitle">{{ .Params.subtitle | emojify }}</h2>
+    {{ end }}
+
     {{ template "partials/home/pg-desc.html" . }}
 </li>
 {{ end }}

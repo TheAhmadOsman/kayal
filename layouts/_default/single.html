@@ -23,15 +23,17 @@
   </p>
 </div>
 
-{{ partial "single/toc.html" . }}
-
 {{/* Cover Image */}}
 {{ if .Params.coverImg }}
   {{ $imgData := dict "Page" . "URL" .Params.coverImg "Alt" "Cover Image" "Caption" .Params.coverImgCaption "Style" "cover-img" }}
   {{ partial "image-renderer.html" $imgData }}
 {{ end }}
 
+{{ partial "single/toc.html" . }}
+
 {{ .Content }}
+
+{{ partial "share-buttons" . }}
 
 {{/* Socials */}}
 {{ if .Params.showSocials | default (.Site.Params.article.showSocials | default false ) }}

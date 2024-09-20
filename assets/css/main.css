@@ -387,11 +387,11 @@ body:not(.dark) #sun {
   text-align: right;
 }
 
-.read-more a,
+/*.read-more a,
 .read-more * a {
   text-decoration: none !important;
   border-bottom: none;
-}
+}*/
 
 .menu-btn {
   color: var(--primary-color);
@@ -742,7 +742,7 @@ pre:hover .copy-button {
 
 .toc summary {
   font-weight: bold;
-  font-size: 1.05rem;
+  font-size: 1.10rem;
 }
 
 .toc-innr {
@@ -759,6 +759,17 @@ pre:hover .copy-button {
 
 .toc li:before {
   content: none;
+}
+
+
+.toc li li {
+  margin: 5px;
+  font-weight: bold;
+  font-size: 1.05rem;
+}
+
+.toc li li:before {
+  content: "•";
 }
 
 .callout {
