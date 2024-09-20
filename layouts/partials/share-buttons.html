@@ -35,7 +35,7 @@
 {{ end }}
 
 {{ $pageURL := .Permalink | safeURL }} {{/*urlquery is undocumented, but maybe should be used here instead*/}}
-{{ $pageTitle := .Title | safeHTML }}
+{{ $pageTitle := .LinkTitle | safeHTML }}
 
 {{ $buttonMargin := "0.5em" }}
 {{ if (isset .Site.Params.ShareButtons "buttonmargin" ) }}
@@ -46,13 +46,13 @@
 <style>
 .resp-sharing-button__link,
 .resp-sharing-button__icon {
-  display: inline-block
+  display: inline-block;
 }
 
 .resp-sharing-button__link {
-  text-decoration: none;
-  color: #fff !important;
-  margin: {{ $buttonMargin }}
+/*  text-decoration: none;*/
+  color: #EFEFE6 !important;
+  margin: {{ $buttonMargin }};
 }
 
 .resp-sharing-button {
@@ -60,109 +60,54 @@
   transition: 25ms ease-out;
   padding: 0.5em 0.75em;
   font-family: Helvetica Neue,Helvetica,Arial,sans-serif;
-  {{ if (isset .Site.Params.ShareButtons "fontsize" ) }}
-  font-size: {{ .Site.Params.ShareButtons.FontSize }}
-  {{ end }}
+  background-color: #000; /* Set background color to black */
 }
 
 .resp-sharing-button__icon svg {
   width: 1em;
   height: 1em;
   margin-right: 0.4em;
-  vertical-align: middle
+  vertical-align: middle;
 }
 
 .resp-sharing-button--small svg {
   margin: 0;
-  vertical-align: middle
+  vertical-align: middle;
 }
 
 /* Non solid icons get a stroke */
 .resp-sharing-button__icon {
   stroke: #fff;
-  fill: none
 }
 
 /* Solid icons get a fill */
 .resp-sharing-button__icon--solid,
 .resp-sharing-button__icon--solidcircle {
   fill: #fff;
-  stroke: none
 }
 
-.resp-sharing-button--twitter {
-  background-color: #55acee
-}
-
-.resp-sharing-button--twitter:hover {
-  background-color: #2795e9
-}
-
-.resp-sharing-button--reddit {
-  background-color: #ff4500
-}
-
-.resp-sharing-button--reddit:hover {
-  background-color: #3a80c1
-}
-
-.resp-sharing-button--linkedin {
-  background-color: #0077b5
-}
-
-.resp-sharing-button--linkedin:hover {
-  background-color: #046293
-}
-
+/* Specific button styles */
+.resp-sharing-button--twitter,
+.resp-sharing-button--reddit,
+.resp-sharing-button--linkedin,
 .resp-sharing-button--hackernews {
-background-color: #FF6600
-}
-.resp-sharing-button--hackernews:hover, .resp-sharing-button--hackernews:focus {   background-color: #FB6200 }
-
-.resp-sharing-button--twitter {
-  background-color: #55acee;
-  border-color: #55acee;
+    background-color: #343431; /* Set background color to black */
+    border-color: #000; /* Set border color to black */
 }
 
-.resp-sharing-button--twitter:hover,
-.resp-sharing-button--twitter:active {
-  background-color: #2795e9;
-  border-color: #2795e9;
-}
-
-.resp-sharing-button--linkedin {
-  background-color: #0077b5;
-  border-color: #0077b5;
-}
-
-.resp-sharing-button--linkedin:hover,
-.resp-sharing-button--linkedin:active {
-  background-color: #046293;
-  border-color: #046293;
-}
-
-.resp-sharing-button--reddit {
-  background-color: #ff4500;
-  border-color: #ff4500;
-}
-
+(resp-sharing-button--twitter:hover,
 .resp-sharing-button--reddit:hover,
-.resp-sharing-button--reddit:active {
-  background-color: #ff5700;
-  border-color: #ff5700;
-}
-
-.resp-sharing-button--hackernews {
-  background-color: #FF6600;
-  border-color: #FF6600;
-}
-
-.resp-sharing-button--hackernews:hover
-.resp-sharing-button--hackernews:active {
-  background-color: #FB6200;
-  border-color: #FB6200;
+(resp-sharing-button--linkedin:hover,
+(resp-sharing-button--hackernews:hover,
+(resp-sharing-button--twitter:active,
+(resp-sharing-button--reddit:active,
+(resp-sharing-button--linkedin:active,
+(resp-sharing-button--hackernews:active {
+    background-color: #333; /* Darker shade for hover and active states */
+    border-color: ##333; /* Darker shade for hover and active states */
 }
 </style>
+
 
 {{ if in .Site.Params.ShareButtons.Networks "twitter" }}
 <!-- Sharingbutton Twitter -->
