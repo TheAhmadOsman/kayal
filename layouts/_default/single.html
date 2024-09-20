@@ -33,14 +33,14 @@
 
 {{ .Content }}
 
-{{ partial "share-buttons" . }}
+{{ partial "share-on-x" . }}
 
 {{/* Socials */}}
 {{ if .Params.showSocials | default (.Site.Params.article.showSocials | default false ) }}
   <br>
-  <br>
   <div class="socials">
     <hr>
+    <br>
     {{ partial "home/socials.html" . }}
   </div>
 {{ end }}
