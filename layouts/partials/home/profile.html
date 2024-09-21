@@ -17,8 +17,8 @@
 {{ .Content }}
 
 {{ if .Site.Params.Social }}
-  <div class="socials">
-  <br>
+{{ partial "ending.html" . }}
+<div class="socials">
   {{ partial "home/socials.html" . }}
   </div>
 {{ end }}

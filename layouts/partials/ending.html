@@ -1,6 +1,27 @@
 {{/* Metadata */}}
+
+{{ if .IsHome }}
 {{ with .Params.untilNextPost | default .Site.Params.untilNextTime }}
+<br>
 <div class="footer-note">
-    Thanks for reading. Until next post, check my <a href="/about">about page</a>, and feel free to connect on my socials below.
+    Catch me on the socials below!
 </div>
+{{ end }}
+
+{{else}}
+{{ if .Params.aboutPage }}
+{{ with .Params.untilNextPost | default .Site.Params.untilNextTime }}
+<br><div class="footer-note">
+    Thanks for scrolling this far – now let's make it official! Catch me on the socials below!
+</div>
+{{ end }}
+{{ else }}
+{{ with .Params.untilNextPost | default .Site.Params.untilNextTime }}
+<br><div class="footer-note">
+    Thanks for reading. Until next post, check my <a href="/about">about page</a>, and feel free to connect on my
+    socials below.
+</div>
+{{ end }}
+{{ end }}
+
 {{ end }}

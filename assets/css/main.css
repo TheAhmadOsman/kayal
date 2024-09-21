@@ -14,6 +14,19 @@ body {
   transition: background 50ms ease-in-out, color 50ms ease-in-out;
 }
 
+  @media screen and (min-width: 1024px) {
+    body {
+      zoom: 150%;
+    }
+  }
+
+  @media screen and (min-width: 1024px) and (-moz-touch-enabled: 0) {
+    body {
+      -moz-transform: scale(1.5);
+      -moz-transform-origin: 0 0;
+    }
+  }
+
 header {
   display: flex;
   align-items:center;
@@ -1185,14 +1198,31 @@ pre code::-webkit-scrollbar-thumb:hover {
   stroke: #fff;
 }
 
-/* Position the share buttons on the right side of the page */
 .share-buttons-container {
-    position: fixed; /* Fix the position relative to the viewport */
-    top: 97%; /* Center vertically */
-    right: 20px; /* Distance from the right edge of the viewport */
-    transform: translateY(-100%); /* Center vertically (adjust if needed) */
-    text-align: right; /* Align all elements inside to the right */
+  position: fixed;
+  bottom: 2vh;
+  /* Use vh unit for responsive vertical positioning */
+  right: 2vw;
+  /* Use vw unit for responsive horizontal positioning */
+  width: 10vw;
+  /* Set a responsive width */
+  max-width: 150px;
+  /* Limit maximum width */
+  min-width: 100px;
+  /* Ensure a minimum width */
+  text-align: right;
+  transform: none;
+  /* Remove transform as it's not needed with bottom positioning */
+}
 
+/* Ensure the content inside the container scales properly */
+.share-buttons-container * {
+  font-size: 16px;
+  /* Use viewport-relative font size */
+  max-font-size: 16px;
+  /* Cap the maximum font size */
+  min-font-size: 12px;
+  /* Ensure a minimum font size */
 }
 
 /* Solid icons get a fill */
