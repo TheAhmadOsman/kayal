@@ -1274,3 +1274,11 @@ pre code::-webkit-scrollbar-thumb:hover {
   position: inherit;
   right: -1%;
 }
+
+.tweet {
+  display: flex;
+  justify-content: center;
+  /* Centers horizontally */
+  align-items: center;
+  /* Centers vertically */
+}
