@@ -1214,3 +1214,33 @@ pre code::-webkit-scrollbar-thumb:hover {
     border-color: #D26637; /* Darker shade for hover and active states */
     opacity: 80%;
 }
+
+.footer-note {
+  padding: 5px;
+  margin: 0px;
+  text-align: center;
+  /* Center the text */
+  font-size: 18px;
+  /* Optional: Adjust font size to make quotes more readable */
+  color: var(--primary-color);
+  /* add transparency */
+  font-style: normal;
+  font-weight: bold;
+  /* Make the text italic */
+}
+
+.footer-note {
+  position: relative;
+}
+
+.footer-note::before {
+  content: "『";
+  position: inherit;
+  left: -1%;
+}
+
+.footer-note::after {
+  content: "』";
+  position: inherit;
+  right: -1%;
+}
