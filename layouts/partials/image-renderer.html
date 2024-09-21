@@ -43,4 +43,5 @@
 {{ else }}
   <img loading="lazy" src="{{ $url.String }}" alt="{{ $altText }}" />
 {{ end }}
+<!-- TODO: Caption styling goes here -->
 {{ with $caption }}<figcaption>{{ . | markdownify }}</figcaption></figure>{{ end }}
