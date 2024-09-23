@@ -1246,33 +1246,31 @@ pre code::-webkit-scrollbar-thumb:hover {
 }
 
 .footer-note {
+  position: relative;
   padding: 5px;
-  margin: 0px;
-  text-align: center;
-  /* Center the text */
+  margin: 15px;
   font-size: 18px;
-  /* Optional: Adjust font size to make quotes more readable */
   color: var(--primary-color);
-  /* add transparency */
   font-style: normal;
   font-weight: bold;
-  /* Make the text italic */
-}
-
-.footer-note {
-  position: relative;
+  text-align: center;
+  text-justify: inter-word;
 }
 
 .footer-note::before {
   content: "『";
-  position: inherit;
-  left: -2%;
+  position: absolute;
+  left: -1.5%;
+  /* margin-top: -9px; */
+  margin-left: -10px;
 }
 
 .footer-note::after {
   content: "』";
-  position: inherit;
-  right: -2%;
+  position: absolute;
+  right: -1.5%;
+  /* margin-top: 9px; */
+  margin-right: -10px;
 }
 
 .tweet {
