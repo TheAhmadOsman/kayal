@@ -19,11 +19,11 @@
 {{ end }}
 {{ if $showReadingTime }}
   {{ if $showModDate }}
-    &mdash; Reading
+    &mdash;
     <span class="meta-icon">{{ partial "icon.html" "time" }}</span>
   {{ else }}
     <br />
-    <span class="meta-icon">{{ partial "icon.html" "time" }}</span> To Read
+    <span class="meta-icon">{{ partial "icon.html" "time" }}</span>
   {{ end }}
   {{ if gt .ReadingTime 1 }}
     {{ printf "%s Minutes" (.ReadingTime | markdownify) }}

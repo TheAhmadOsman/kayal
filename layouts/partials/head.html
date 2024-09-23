@@ -17,14 +17,17 @@
   {{ else }}
     <title>
       {{ .Title | emojify }}{{ if .Params.Subtitle }}
-        : {{ .Params.Subtitle | emojify }}
+        :
+        {{ .Params.Subtitle | emojify }}
       {{ end }}
-      &middot; {{ .Site.Title | emojify }}
+      &middot;
+      {{ .Site.Title | emojify }}
     </title>
     <meta
       name="title"
       content="{{ .Title | emojify }}{{ if .Params.Subtitle }}
-        : {{ .Params.Subtitle | emojify }}
+        :
+        {{ .Params.Subtitle | emojify }}
       {{ end }} &middot; {{ .Site.Title | emojify }}"
     />
   {{ end }}

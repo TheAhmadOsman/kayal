@@ -3,7 +3,9 @@
 {{ if .IsHome }}
   {{ with .Params.untilNextPost | default .Site.Params.untilNextTime }}
     <br />
-    <div class="footer-note">You can connect with me on the socials ↴</div>
+    <div class="footer-note">
+      Thank you for visiting! You can connect with me on the socials ↴
+    </div>
   {{ end }}
 
 {{ else }}
