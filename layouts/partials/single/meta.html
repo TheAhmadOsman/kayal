@@ -11,24 +11,29 @@
   {{ $dateModMachine := .Lastmod | time.Format "2006-01-02T15:04:05-07:00" }}
   {{ $dateModHuman := .Lastmod | time.Format "Jan 2, 2006" }}
   {{ if and $showModDate (ne $dateModHuman $dateHuman) }}
-    <br>
+    <br />
     <span class="meta-icon">{{ partial "icon.html" "pencil" }}</span>
-    Last Edited <time datetime="{{ $dateModMachine }}">{{ $dateModHuman }}</time>
+    Last Edited
+    <time datetime="{{ $dateModMachine }}">{{ $dateModHuman }}</time>
   {{ end }}
 {{ end }}
 {{ if $showReadingTime }}
   {{ if $showModDate }}
-  &mdash; Reading <span class="meta-icon">{{ partial "icon.html" "time" }}</span>
+    &mdash; Reading
+    <span class="meta-icon">{{ partial "icon.html" "time" }}</span>
   {{ else }}
-  <br>
-  <span class="meta-icon">{{ partial "icon.html" "time" }}</span> To Read
+    <br />
+    <span class="meta-icon">{{ partial "icon.html" "time" }}</span> To Read
   {{ end }}
   {{ if gt .ReadingTime 1 }}
     {{ printf "%s Minutes" (.ReadingTime | markdownify) }}
   {{ else }}
     {{ printf "%s Minute" (.ReadingTime | markdownify) }}
   {{ end }}
-{{ end}}
+{{ end }}
 {{ if .Draft }}
-  &mdash; <span class="draft-lbl"><span class="meta-icon">{{ partial "icon.html" "edit" }}</span></span>
+  &mdash;
+  <span class="draft-lbl"
+    ><span class="meta-icon">{{ partial "icon.html" "edit" }}</span></span
+  >
 {{ end }}

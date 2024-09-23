@@ -2,6 +2,6 @@
   {{ partial "analytics/google.html" . }}
   {{/* Custom analytics */}}
   {{ if templates.Exists "partials/analytics/custom.html" }}
-      {{ partial "analytics/custom.html" . }}
+    {{ partial "analytics/custom.html" . }}
   {{ end }}
 {{ end }}

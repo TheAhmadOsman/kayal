@@ -1,64 +1,64 @@
 {{ define "main" }}
-
-{{/* Breadcrumbs */}}
-{{ if .Params.showBreadcrumbs | default (.Site.Params.article.showBreadcrumbs | default false ) }}
-{{ partial "breadcrumbs.html" . }}
-{{ end }}
-
-<h1 class="pg-title">{{ .Title | emojify }}</h1>
-
-{{ if .Params.subtitle }}
-<h2 class="pg-subtitle">{{ .Params.subtitle | emojify }}</h2>
-{{ end }}
-
-{{ if .Params.showBreakingLine | default (.Site.Params.article.showBreakingLine | default false ) }}
-<hr class="header-hr">
-{{ end }}
-
-{{/* Meta */}}
-<div class="meta">
-  {{ partial "single/meta-tags.html" . }}
-  <p>
-  {{ partial "single/meta.html" . }}
-  </p>
-</div>
-
-{{/* Cover Image */}}
-{{ if .Params.coverImg }}
-  {{ $imgData := dict "Page" . "URL" .Params.coverImg "Alt" "Cover Image" "Caption" .Params.coverImgCaption "Style" "cover-img" }}
-  {{ partial "image-renderer.html" $imgData }}
-{{ end }}
-
-{{ partial "single/toc.html" . }}
-
-{{ .Content }}
-
-{{ partial "ending.html" . }}
-
-{{ partial "share-on-x" . }}
-
-{{/* Socials */}}
-{{ if .Params.showSocials | default (.Site.Params.article.showSocials | default false ) }}
-  <br>
-  <div class="socials">
-    <hr>
-    <br>
-    {{ partial "home/socials.html" . }}
-  </div>
-{{ end }}
-
-{{/* Pagination */}}
-{{ partial "single/pagination.html" . }}
-
-{{/* Comments */}}
-{{ if .Params.showComments | default (.Site.Params.article.showComments | default false) }}
-  {{ if templates.Exists "partials/comments.html" }}
-  <div class="comment">
-    {{ partial "comments.html" . }}
-  </div>
-  {{ else }}
-    {{ warnf "Comments are enabled for %s but no comments partial exists." .File.Path }}
+  {{/* Breadcrumbs */}}
+  {{ if .Params.showBreadcrumbs | default (.Site.Params.article.showBreadcrumbs | default false ) }}
+    {{ partial "breadcrumbs.html" . }}
   {{ end }}
-{{ end }}
+
+
+  <h1 class="pg-title">{{ .Title | emojify }}</h1>
+
+  {{ if .Params.subtitle }}
+    <h2 class="pg-subtitle">{{ .Params.subtitle | emojify }}</h2>
+  {{ end }}
+
+  {{ if .Params.showBreakingLine | default (.Site.Params.article.showBreakingLine | default false ) }}
+    <hr class="header-hr" />
+  {{ end }}
+
+  {{/* Meta */}}
+  <div class="meta">
+    {{ partial "single/meta-tags.html" . }}
+    <p>
+      {{ partial "single/meta.html" . }}
+    </p>
+  </div>
+
+  {{/* Cover Image */}}
+  {{ if .Params.coverImg }}
+    {{ $imgData := dict "Page" . "URL" .Params.coverImg "Alt" "Cover Image" "Caption" .Params.coverImgCaption "Style" "cover-img" }}
+    {{ partial "image-renderer.html" $imgData }}
+  {{ end }}
+
+  {{ partial "single/toc.html" . }}
+
+  {{ .Content }}
+
+  {{ partial "ending.html" . }}
+
+  {{ partial "share-on-x" . }}
+
+  {{/* Socials */}}
+  {{ if .Params.showSocials | default (.Site.Params.article.showSocials | default false ) }}
+    <br />
+    <div class="socials">
+      <hr />
+      <br />
+      {{ partial "home/socials.html" . }}
+    </div>
+  {{ end }}
+
+  {{/* Pagination */}}
+  {{ partial "single/pagination.html" . }}
+
+  {{/* Comments */}}
+  {{ if .Params.showComments | default (.Site.Params.article.showComments | default false) }}
+    {{ if templates.Exists "partials/comments.html" }}
+      <div class="comment">
+        {{ partial "comments.html" . }}
+      </div>
+    {{ else }}
+      {{ warnf "Comments are enabled for %s but no comments partial exists." .File.Path }}
+    {{ end }}
+  {{ end }}
 
 {{ end }}

@@ -1,24 +1,40 @@
 <head>
-  <meta charset="utf-8">
+  <meta charset="utf-8" />
   <meta http-equiv="content-language" content="{{ .Site.LanguageCode }}" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta http-equiv="X-UA-Compatible" content="ie=edge" />
 
   {{/* Title */}}
   {{ if .IsHome }}
-  <title>{{ .Site.Title | emojify }} &middot; Ahmad M. Osman Cyber Corner &middot; {{ .Site.Params.subtitle | emojify }}</title>
-  <meta name="title" content="{{ .Site.Title | emojify }} &middot; Ahmad M. Osman Cyber Corner &middot; {{ .Site.Params.subtitle | emojify }}" />
+    <title>
+      {{ .Site.Title | emojify }} &middot; Ahmad M. Osman Cyber Corner &middot;
+      {{ .Site.Params.subtitle | emojify }}
+    </title>
+    <meta
+      name="title"
+      content="{{ .Site.Title | emojify }} &middot; Ahmad M. Osman Cyber Corner &middot; {{ .Site.Params.subtitle | emojify }}"
+    />
   {{ else }}
-  <title>{{ .Title | emojify }}{{ if .Params.Subtitle }}: {{ .Params.Subtitle | emojify }}{{ end }} &middot; {{ .Site.Title | emojify }}</title>
-  <meta name="title" content="{{ .Title | emojify }}{{ if .Params.Subtitle }}: {{ .Params.Subtitle | emojify }}{{ end }} &middot; {{ .Site.Title | emojify }}" />
+    <title>
+      {{ .Title | emojify }}{{ if .Params.Subtitle }}
+        : {{ .Params.Subtitle | emojify }}
+      {{ end }}
+      &middot; {{ .Site.Title | emojify }}
+    </title>
+    <meta
+      name="title"
+      content="{{ .Title | emojify }}{{ if .Params.Subtitle }}
+        : {{ .Params.Subtitle | emojify }}
+      {{ end }} &middot; {{ .Site.Title | emojify }}"
+    />
   {{ end }}
 
   {{/* Metadata */}}
   {{ with (.Params.Summary | default .Params.Description) | default .Site.Params.description }}
-  <meta name="description" content="{{ . }}" />
+    <meta name="description" content="{{ . }}" />
   {{ end }}
   {{ with  .Params.Keywords | default .Site.Params.keywords -}}
-  <meta name="keywords" content="{{ range . }}{{ . }}, {{ end -}}" />
+    <meta name="keywords" content="{{ range . }}{{ . }},{{ end -}}" />
   {{- end }}
   <link rel="canonical" href="{{ .Permalink }}" />
 
@@ -29,27 +45,43 @@
   {{ if templates.Exists "partials/favicons.html" }}
     {{ partialCached "favicons.html" .Site }}
   {{ else }}
-    <link rel="apple-touch-icon" sizes="180x180" href="{{ "apple-touch-icon.png" | relURL }}" />
-    <link rel="icon" type="image/png" sizes="32x32" href="{{ "favicon-32x32.png" | relURL }}" />
-    <link rel="icon" type="image/png" sizes="16x16" href="{{ "favicon-16x16.png" | relURL }}" />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="{{ "apple-touch-icon.png" | relURL }}"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="{{ "favicon-32x32.png" | relURL }}"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="{{ "favicon-16x16.png" | relURL }}"
+    />
     <link rel="manifest" href="{{ "site.webmanifest" | relURL }}" />
   {{ end }}
 
   {{ range .AlternativeOutputFormats -}}
-  {{ printf `<link rel="%s" type="%s" href="%s" title="%s" />` .Rel .MediaType.Type .RelPermalink ($.Site.Title | emojify) | safeHTML }}
+    {{ printf `<link rel="%s" type="%s" href="%s" title="%s" />` .Rel .MediaType.Type .RelPermalink ($.Site.Title | emojify) | safeHTML }}
   {{ end -}}
 
   {{ partial "opengraph.html" . }}
   <!-- {{ template "_internal/opengraph.html" . }}
   {{ with .Params.coverImg }}
     <meta property="og:image" content="{{ . | absURL }}" />
-  {{ end }} -->
+  {{ end }}
+   -->
 
   {{ partial "twitter_cards.html" . }}
   <!-- {{ template "_internal/twitter_cards.html" . }}
   {{ with .Params.coverImg }}
     <meta name="twitter:image" content="{{ . | absURL }}" />
-  {{ end }} -->
+  {{ end }}
+   -->
 
   {{/* vendor */}}
   {{ partial "head/vendor.html" . }}
@@ -74,11 +106,17 @@
   {{/* Preload fonts */}}
   {{ $fonts := .Site.Params.preloadFonts | default (slice "fonts/Ubuntu-Regular.woff2") }}
   {{ range $fonts }}
-    <link rel="preload" href="{{ absURL . }}" as="font" type="font/woff2" crossorigin>
+    <link
+      rel="preload"
+      href="{{ absURL . }}"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
   {{ end }}
 
   {{ if templates.Exists "partials/extend-head.html" }}
-  {{ partialCached "extend-head.html" .Site }}
+    {{ partialCached "extend-head.html" .Site }}
   {{ end }}
 
   {{ with .OutputFormats.Get "rss" -}}

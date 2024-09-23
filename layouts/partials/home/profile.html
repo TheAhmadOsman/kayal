@@ -8,8 +8,8 @@
 {{ $where := .Site.Params.homepage.profile.where }}
 {{ if $img }}
   <div class="avatar {{ $where }}">
-  {{ $imgData := dict "Page" . "URL" $img "Alt" "Profile Image" "Size" "200x200" }}
-  {{ partial "image-renderer.html" $imgData }}
+    {{ $imgData := dict "Page" . "URL" $img "Alt" "Profile Image" "Size" "200x200" }}
+    {{ partial "image-renderer.html" $imgData }}
   </div>
 {{ end }}
 
@@ -17,8 +17,8 @@
 {{ .Content }}
 
 {{ if .Site.Params.Social }}
-{{ partial "ending.html" . }}
-<div class="socials">
-  {{ partial "home/socials.html" . }}
+  {{ partial "ending.html" . }}
+  <div class="socials">
+    {{ partial "home/socials.html" . }}
   </div>
 {{ end }}

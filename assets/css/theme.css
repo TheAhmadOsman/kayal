@@ -1,28 +1,28 @@
-:root{
-  --ff: 'Ubuntu';
+:root {
+  --ff: "Ubuntu";
   --radius: 6px;
 
-  --primary-color: #012A36; /* Text */
-  --secondary-color: #FCFFEB; /* Background */
-  --secondary-color-dark: #D5B986; /* Embedded Frames */
-  --tertiary-color: #C85C2D; /* Accent: Titles, Underlines, etc... */
-  --tertiary-color-light: #D26637; /* Light Accent: Tags, etc... */
-  --link-color: #B7542A; /* Secondary */
+  --primary-color: #012a36; /* Text */
+  --secondary-color: #fcffeb; /* Background */
+  --secondary-color-dark: #d5b986; /* Embedded Frames */
+  --tertiary-color: #c85c2d; /* Accent: Titles, Underlines, etc... */
+  --tertiary-color-light: #d26637; /* Light Accent: Tags, etc... */
+  --link-color: #b7542a; /* Secondary */
 
   --black: #292929;
   --code-bg: #272822; /*Monokai*/
   --code-fg: #f8f8f2; /*Monokai*/
   --code-scroll-thumb: #525252;
-  --scrollbar-track: #EFEFE6;
-  --scrollbar-thumb: #B7B78F;
+  --scrollbar-track: #efefe6;
+  --scrollbar-thumb: #b7b78f;
 }
 
 .dark {
-  --primary-color: #EFEFE6;
+  --primary-color: #efefe6;
   --secondary-color: #292929;
-  --tertiary-color: #FF7F11;
+  --tertiary-color: #ff7f11;
   --link-color: #c76c1c;
-  --tertiary-color-light: #A34C00;
+  --tertiary-color-light: #a34c00;
   --secondary-color-dark: #343431;
   --scrollbar-track: #292929;
   --scrollbar-thumb: #525252;
@@ -30,8 +30,8 @@
 
 @font-face {
   font-display: swap;
-  font-family: 'Ubuntu';
+  font-family: "Ubuntu";
   font-style: normal;
   font-weight: 400;
-  src: url('../fonts/Ubuntu-Regular.woff2') format('woff2');
+  src: url("../fonts/Ubuntu-Regular.woff2") format("woff2");
 }

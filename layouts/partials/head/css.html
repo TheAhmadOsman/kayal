@@ -2,16 +2,21 @@
 {{ if eq hugo.Environment "development" }}
   {{ range $styles }}
     {{ with resources.Get . }}
-        <link rel="stylesheet" href="{{ .RelPermalink }}">
+      <link rel="stylesheet" href="{{ .RelPermalink }}" />
     {{ end }}
   {{ end }}
 {{ else }}
-{{ $cssConcatenated := slice }}
-{{ range $index, $style := $styles }}
-  {{ with resources.Get $style }}
-    {{ $cssConcatenated = $cssConcatenated | append . }}
+  {{ $cssConcatenated := slice }}
+  {{ range $index, $style := $styles }}
+    {{ with resources.Get $style }}
+      {{ $cssConcatenated = $cssConcatenated | append . }}
+    {{ end }}
   {{ end }}
-{{ end }}
   {{ $bundleCSS := $cssConcatenated | resources.Concat "css/main.bundle.css" | resources.Minify | resources.Fingerprint "sha512" }}
-  <link type="text/css" rel="stylesheet" href="{{ $bundleCSS.RelPermalink }}" integrity="{{ $bundleCSS.Data.Integrity }}" />
+  <link
+    type="text/css"
+    rel="stylesheet"
+    href="{{ $bundleCSS.RelPermalink }}"
+    integrity="{{ $bundleCSS.Data.Integrity }}"
+  />
 {{ end }}

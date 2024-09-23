@@ -1,28 +1,30 @@
 <!-- {{ $showTags := .Params.showTags | default (.Site.Params.article.showTags | default true) }}
 {{ with .GetTerms "tags" }}
-{{ if gt (len .) 0 }}
-<p>
-  <span class="meta-icon"> {{ partial "icon.html" "tag" }} </span>
-  {{ range . }}
-  <a class="tag" href="{{ .RelPermalink }}">{{ .LinkTitle }}</a>
+  {{ if gt (len .) 0 }}
+    <p>
+      <span class="meta-icon"> {{ partial "icon.html" "tag" }} </span>
+      {{ range . }}
+        <a class="tag" href="{{ .RelPermalink }}">{{ .LinkTitle }}</a>
+      {{ end }}
+    </p>
   {{ end }}
-</p>
-{{ end }}
 {{ end }}
  -->
 
 {{ $showTags := .Params.showTags | default (.Site.Params.article.showTags | default true) }}
 {{ if $showTags }}
-{{ with .GetTerms "tags" }}
-{{ if gt (len .) 0 }}
-  {{ range .Reverse }}
-    <span class="tags">
-      <a class="tag" href="{{ .RelPermalink }}">{{ .LinkTitle }}</a>
-    </span>
+  {{ with .GetTerms "tags" }}
+    {{ if gt (len .) 0 }}
+      {{ range .Reverse }}
+        <span class="tags">
+          <a class="tag" href="{{ .RelPermalink }}">{{ .LinkTitle }}</a>
+        </span>
+      {{ end }}
+      <span class="tags">
+        <span class="meta-icon">
+          {{ partial "icon.html" "tag-horizontal" }}
+        </span>
+      </span>
+    {{ end }}
   {{ end }}
-  <span class="tags">
-    <span class="meta-icon"> {{ partial "icon.html" "tag-horizontal" }} </span>
-  </span>
-{{ end }}
-{{ end }}
 {{ end }}

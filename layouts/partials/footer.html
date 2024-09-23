@@ -1,29 +1,36 @@
 <footer>
   <div class="copyright">
     {{ with .Site.Params.copyright }}
-      {{ . | safeHTML }} © {{ dateFormat "2006" now }}
+      {{ . | safeHTML }} ©
+      {{ dateFormat "2006" now }}
     {{ end }}
   </div>
 
   {{ if .Site.Params.showFooterSocials }}
-  <div class="socials" id="footer-socials">
-    <ul>
+    <div class="socials" id="footer-socials">
+      <ul>
         {{- range $index, $key := .Site.Params.Social -}}
-        <li>
-            <a href="{{ $key.url }}" rel="me" title="{{ $key.name }}" target="_blank">
-                <span class="socials-footer-icon">
+          <li>
+            <a
+              href="{{ $key.url }}"
+              rel="me"
+              title="{{ $key.name }}"
+              target="_blank"
+            >
+              <span class="socials-footer-icon">
                 {{ partial "icon.html" $key.icon }}
-                </span>
+              </span>
             </a>
-        </li>
+          </li>
         {{- end -}}
-    </ul>
-  </div>
+      </ul>
+    </div>
   {{ end }}
 </footer>
 
 {{ if not .Site.Params.removeAttribution }}
-<div class="attribution">
-  Built with <a href="https://gohugo.io" target="_blank">Hugo</a> & <a href="https://github.com/mnjm/kayal" target="_blank">Kayal</a>
-</div>
+  <div class="attribution">
+    Built with <a href="https://gohugo.io" target="_blank">Hugo</a> &
+    <a href="https://github.com/mnjm/kayal" target="_blank">Kayal</a>
+  </div>
 {{ end }}

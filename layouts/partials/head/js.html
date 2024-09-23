@@ -15,7 +15,12 @@
         <script src="{{ .RelPermalink }}"></script>
       {{ else }}
         {{ $builtJS := . | resources.Minify | resources.Fingerprint "sha512" }}
-        <script defer type="text/javascript" src="{{ $builtJS.RelPermalink }}" integrity="{{ $builtJS.Data.Integrity }}"> </script>
+        <script
+          defer
+          type="text/javascript"
+          src="{{ $builtJS.RelPermalink }}"
+          integrity="{{ $builtJS.Data.Integrity }}"
+        ></script>
       {{ end }}
     {{ end }}
   {{ end }}

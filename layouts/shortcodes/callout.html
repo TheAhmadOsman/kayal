@@ -7,23 +7,27 @@
   {{ $.Scratch.Set "icon" (default "triangle-exclamation" (.Get 0) ) }}
 {{ end }}
 
-<div class="callout"
+
+<div
+  class="callout"
   {{ with $.Scratch.Get "cardColor" }}
-  style="background-color: {{ . }}"
+    style="background-color: {{ . }}"
   {{ end }}
 >
-<span class="icon"
-{{ with $.Scratch.Get "iconColor" }}
-style="color: {{ . }}"
-{{ end }}
->
-{{ partial "icon.html" ($.Scratch.Get "icon") }}
-</span>
-<span class="txt"
-{{ with $.Scratch.Get "textColor" }}
-style="color: {{ . }}"
-{{ end }}
->
-{{ .Inner | markdownify }}
-</span>
+  <span
+    class="icon"
+    {{ with $.Scratch.Get "iconColor" }}
+      style="color: {{ . }}"
+    {{ end }}
+  >
+    {{ partial "icon.html" ($.Scratch.Get "icon") }}
+  </span>
+  <span
+    class="txt"
+    {{ with $.Scratch.Get "textColor" }}
+      style="color: {{ . }}"
+    {{ end }}
+  >
+    {{ .Inner | markdownify }}
+  </span>
 </div>
