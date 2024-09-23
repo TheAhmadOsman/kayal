@@ -1206,9 +1206,9 @@ pre code::-webkit-scrollbar-thumb:hover {
   /* Use vw unit for responsive horizontal positioning */
   width: 10vw;
   /* Set a responsive width */
-  max-width: 150px;
+  max-width: 180px;
   /* Limit maximum width */
-  min-width: 100px;
+  min-width: 120px;
   /* Ensure a minimum width */
   text-align: right;
   transform: none;
@@ -1266,13 +1266,13 @@ pre code::-webkit-scrollbar-thumb:hover {
 .footer-note::before {
   content: "『";
   position: inherit;
-  left: -1%;
+  left: -2%;
 }
 
 .footer-note::after {
   content: "』";
   position: inherit;
-  right: -1%;
+  right: -2%;
 }
 
 .tweet {
