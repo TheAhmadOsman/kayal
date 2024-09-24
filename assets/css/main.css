@@ -580,6 +580,7 @@ body:not(.dark) #sun {
     font-size: 1.1em;
   }
 }
+
 .lst-card li p {
   margin: 0.1em;
   margin-bottom: 0.1em;
@@ -606,6 +607,8 @@ body:not(.dark) #sun {
   position:relative;
   padding: 0;
   margin: 0px;
+  margin-left: 2vh;
+  margin-right: 2vh;
   margin-bottom: 0.25em;
   text-align: center; /* Center the text */
   /* font-size: 20px; Optional: Adjust font size to make quotes more readable */
@@ -617,14 +620,52 @@ body:not(.dark) #sun {
 .pg-subtitle::before {
     content:"❝";
     position: inherit;
-    left: -1vh;
     font-style: normal;
+    float: left;
+    text-align: left;
 }
 .pg-subtitle::after {
     content:"❞";
     position: inherit;
-    right: -1vh;
     font-style: normal;
+    float: right;
+    text-align: right;
+}
+
+/* Tablets (768px to 1199px) */
+@media (max-width: 1199px) {
+
+  .pg-title,
+  .pg-subtitle {
+    font-size: 1.4em;
+  }
+}
+
+/* Small tablets and large phones (600px to 767px) */
+@media (max-width: 767px) {
+
+  .pg-title,
+  .pg-subtitle {
+    font-size: 1.3em;
+  }
+}
+
+/* Phones (480px to 599px) */
+@media (max-width: 599px) {
+
+  .pg-title,
+  .pg-subtitle {
+    font-size: 1.2em;
+  }
+}
+
+/* Phones (400px and smaller) */
+@media (max-width: 400px) {
+
+  .pg-title,
+  .pg-subtitle {
+    font-size: 1.1em;
+  }
 }
 
 /* Meta */
