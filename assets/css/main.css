@@ -712,6 +712,18 @@ body:not(.dark) #sun {
   margin-left: 0.05em;
 }
 
+.tags a {
+  border: none;
+  text-decoration: none;
+  background: var(--secondary-color);
+  color: var(--primary-color);
+}
+
+.tags a:hover {
+  background: var(--link-color);
+  color: var(--primary-color);
+}
+
 .draft-lbl {
   background-color: var(--link-color);
   color: var(--black);
