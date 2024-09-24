@@ -19,7 +19,7 @@
     {{ .Title | emojify }}
     {{ if $showRSS }}
       {{ with .OutputFormats.Get "rss" }}
-        <a href="{{ .RelPermalink }}" title="RSS" aria-label="RSS">
+        &middot; &middot; &middot;<a href="{{ .RelPermalink }}" title="RSS" aria-label="RSS">
           {{ partial "icon.html" "rss" }}
         </a>
       {{ end }}
