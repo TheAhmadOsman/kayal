@@ -14,7 +14,7 @@
     </h{{$lvl}}>
     {{ partial "single/meta.html" . }}
     {{ if .Params.subtitle }}
-        <h2 class="pg-subtitle">{{ .Params.subtitle | emojify }}</h2>
+        <h{{$lvl}} class="pg-subtitle" style="margin: 1vh;">{{ .Params.subtitle | emojify }}</h{{$lvl}}>
     {{ end }}
 
     {{ template "partials/home/pg-desc.html" . }}

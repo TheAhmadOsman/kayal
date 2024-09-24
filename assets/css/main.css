@@ -548,6 +548,38 @@ body:not(.dark) #sun {
   margin-bottom: 0.12em;
 }
 
+/* Tablets (768px to 1199px) */
+@media (max-width: 1199px) {
+  .lst-card li h2,
+  .lst-card li h3 {
+    font-size: 1.4em;
+  }
+}
+
+/* Small tablets and large phones (600px to 767px) */
+@media (max-width: 767px) {
+  .lst-card li h2,
+  .lst-card li h3 {
+    font-size: 1.3em;
+  }
+}
+
+/* Phones (480px to 599px) */
+@media (max-width: 599px) {
+  .lst-card li h2,
+  .lst-card li h3 {
+    font-size: 1.2em;
+  }
+}
+
+/* Phones (400px and smaller) */
+@media (max-width: 400px) {
+
+  .lst-card li h2,
+  .lst-card li h3 {
+    font-size: 1.1em;
+  }
+}
 .lst-card li p {
   margin: 0.1em;
   margin-bottom: 0.1em;
@@ -576,21 +608,23 @@ body:not(.dark) #sun {
   margin: 0px;
   margin-bottom: 0.25em;
   text-align: center; /* Center the text */
-  font-size: 20px; /* Optional: Adjust font size to make quotes more readable */
+  /* font-size: 20px; Optional: Adjust font size to make quotes more readable */
   color: var(--primary-color);
   opacity: 0.95; /* add transparency */
-  font-style: normal; /* Make the text italic */
+  font-style: italic; /* Make the text italic */
 }
 
 .pg-subtitle::before {
     content:"❝";
     position: inherit;
     left: -1vh;
+    font-style: normal;
 }
 .pg-subtitle::after {
     content:"❞";
     position: inherit;
     right: -1vh;
+    font-style: normal;
 }
 
 /* Meta */
@@ -1198,7 +1232,7 @@ pre code::-webkit-scrollbar-thumb:hover {
 
 .share-buttons-container {
   position: fixed;
-  bottom: 2vh;
+  bottom: 5vh;
   /* Use vh unit for responsive vertical positioning */
   right: 2vw;
   /* Use vw unit for responsive horizontal positioning */
@@ -1249,7 +1283,7 @@ pre code::-webkit-scrollbar-thumb:hover {
   margin: 15px;
   font-size: 18px;
   color: var(--primary-color);
-  font-style: normal;
+  font-style: italic;
   font-weight: bold;
   text-align: center;
   text-justify: inter-word;
@@ -1257,6 +1291,7 @@ pre code::-webkit-scrollbar-thumb:hover {
 
 .footer-note::before {
   content: "『";
+  font-style: normal;
   position: absolute;
   left: -1.5%;
   /* margin-top: -9px; */
@@ -1265,6 +1300,7 @@ pre code::-webkit-scrollbar-thumb:hover {
 
 .footer-note::after {
   content: "』";
+  font-style: normal;
   position: absolute;
   right: -1.5%;
   /* margin-top: 9px; */

@@ -15,9 +15,15 @@
 {{ if $showTags }}
   {{ with .GetTerms "tags" }}
     {{ if gt (len .) 0 }}
+    <p>
+    <!-- <span class="tags">
+        <span class="meta-icon">
+          {{ partial "icon.html" "tag" }}
+        </span>
+      </span> -->
       {{ range .Reverse }}
         <span class="tags">
-          <a class="tag" href="{{ .RelPermalink }}">{{ .LinkTitle }}</a>
+          <a class="tag" href="{{ .RelPermalink }}">#{{ .LinkTitle | lower | replaceRE " " "-" }}</a>
         </span>
       {{ end }}
       <span class="tags">
@@ -25,6 +31,24 @@
           {{ partial "icon.html" "tag-horizontal" }}
         </span>
       </span>
+      </p>
     {{ end }}
   {{ end }}
 {{ end }}
+
+<!-- {{ $showTags := .Params.showTags | default (.Site.Params.article.showTags | default true) }}
+{{ if $showTags }}
+{{ with .GetTerms "tags" }}
+{{ if gt (len .) 0 }}
+<br>
+<span class="meta-icon">
+  {{ partial "icon.html" "tag" }}
+</span>
+{{ range . }}
+<span class="tags">
+  <a class="tag" href="{{ .RelPermalink }}">{{ .LinkTitle }}</a>
+</span>
+{{ end }}
+{{ end }}
+{{ end }}
+{{ end }} -->

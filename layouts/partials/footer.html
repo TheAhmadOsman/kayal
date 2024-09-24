@@ -1,9 +1,15 @@
 <footer>
   <div class="copyright">
+    <!-- {{ with .Site.Params.copyright }}
+      {{ . | safeHTML }} © Copyright
+      {{ dateFormat "2006" now }}
+      &middot; All Rights Reserved
+    {{ end }} -->
     {{ with .Site.Params.copyright }}
       {{ . | safeHTML }} ©
       {{ dateFormat "2006" now }}
     {{ end }}
+
   </div>
 
   {{ if .Site.Params.showFooterSocials }}
