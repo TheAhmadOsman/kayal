@@ -14,15 +14,15 @@ body {
   transition: background 50ms ease-in-out, color 50ms ease-in-out;
 }
 
-  @media screen and (min-width: 1024px) {
+  @media screen and (min-width: 1800px) {
     body {
-      zoom: 150%;
+      zoom: 125%;
     }
   }
 
-  @media screen and (min-width: 1024px) and (-moz-touch-enabled: 0) {
+  @media screen and (min-width: 1800px) and (-moz-touch-enabled: 0) {
     body {
-      -moz-transform: scale(1.5);
+      -moz-transform: scale(1.25);
       -moz-transform-origin: 0 0;
     }
   }
