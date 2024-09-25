@@ -1,4 +1,4 @@
-{{ $pageURL := printf "%ps?s=t" (.Permalink | safeURL) }}
+{{ $pageURL := printf "%s?ps=t" (.Permalink | safeURL) }}
 {{/* urlquery is undocumented, but maybe should be used here instead */}}
 {{ $pageTitle := .LinkTitle | safeHTML }}
 {{ $pageDescription := .Description | plainify | htmlUnescape | chomp }}
