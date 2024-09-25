@@ -36,6 +36,10 @@
 
   {{ .Content }}
 
+  {{ if .Params.showFixedSharing | default (.Site.Params.article.showFixedSharing | default false ) }}
+    {{ partial "share.html" . }}
+  {{ end }}
+
   {{ partial "ending.html" . }}
 
   {{ partial "share-on-x" . }}

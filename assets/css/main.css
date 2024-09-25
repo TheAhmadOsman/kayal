@@ -1254,7 +1254,6 @@ pre code::-webkit-scrollbar-thumb:hover {
 .resp-sharing-button__link {
   text-decoration: none;
   color: #EFEFE6 !important;
-  margin: {{ $buttonMargin }};
 }
 
 .resp-sharing-button {
@@ -1324,10 +1323,14 @@ pre code::-webkit-scrollbar-thumb:hover {
 
 /* Hover and active states */
 .resp-sharing-button--twitter:hover,
+.resp-sharing-button--twitter:focus,
 .resp-sharing-button--twitter:active {
-    background-color: #D26637; /* Darker shade for hover and active states */
-    border-color: #D26637; /* Darker shade for hover and active states */
-    opacity: 80%;
+  background-color: #343431;
+  /* Darker shade for hover and active states */
+  border-color: inherit;
+  /* Darker shade for hover and active states */
+  color: inherit;
+  opacity: 60%;
 }
 
 .footer-note {
@@ -1366,4 +1369,350 @@ pre code::-webkit-scrollbar-thumb:hover {
   /* Centers horizontally */
   align-items: center;
   /* Centers vertically */
+}
+
+/* Back to Top Button */
+.back-to-top-button__link,
+.back-to-top-button__icon {
+  display: inline-block;
+  text-decoration: none;
+  border-bottom: none;
+}
+
+.back-to-top-button__link {
+  text-decoration: none;
+  color: #EFEFE6 !important;
+}
+
+.back-to-top-button {
+  border-radius: 5px;
+  transition: 25ms ease-out;
+  padding: 0.5em 0.75em;
+  font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+  background-color: #000;
+  opacity: 50%;
+}
+
+.back-to-top-button__icon svg {
+  width: 1em;
+  height: 1em;
+  margin-right: 0.4em;
+  vertical-align: middle;
+}
+
+.back-to-top-button--small svg {
+  margin: 0;
+  vertical-align: middle;
+}
+
+/* Non solid icons get a stroke */
+.back-to-top-button__icon {
+  stroke: #fff;
+}
+
+.back-to-top-container {
+  position: fixed;
+  bottom: 5vh;
+  /* Use vh unit for responsive vertical positioning */
+  left: 2vw;
+  /* Use vw unit for responsive horizontal positioning */
+  width: 10vw;
+  /* Set a responsive width */
+  max-width: 180px;
+  /* Limit maximum width */
+  min-width: 120px;
+  /* Ensure a minimum width */
+  text-align: left;
+  /* Remove transform as it's not needed with bottom positioning */
+  transform: none;
+}
+
+/* Ensure the content inside the container scales properly */
+.back-to-top-container * {
+  font-size :16px;
+  /* Ensure a minimum width */
+  max-font-size :16px;
+  /* Cap the maximum font size */
+  min-font-size :12px;
+  /* Ensure a minimum font size */
+}
+
+/* Solid icons get a fill */
+.back-to-top-button__icon--solid,
+.back-to-top-button__icon--solidcircle {
+  fill: #fff
+}
+
+.back-to-top-button--default {
+  background-color: #343431;
+  border-color: transparent;
+}
+
+.back-to-top-button--default:hover,
+.back-to-top-button--default:focus,
+.back-to-top-button--default.active {
+  background-color: #343431;
+  /* Darker shade for hover and active states */
+  border-color: transparent;
+  /* Darker shade for hover and active states */
+  color: inherit;
+  opacity: 60%;
+}
+
+/* Fixed Sharing Buttons */
+.fixed-sharing-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.fixed-sharing-button__link,
+.fixed-sharing-button__icon {
+  display: inline-block;
+  border: none;
+}
+
+.fixed-sharing-button__link {
+  text-decoration: none;
+  color: #fff;
+  margin: 0.15em;
+}
+
+.fixed-sharing-button {
+  border-radius: 5px;
+  transition: 25ms ease-out;
+  padding: 0.5em 0.75em;
+  font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+}
+
+.fixed-sharing-button__icon svg {
+  width: 1em;
+  height: 1em;
+  margin-right: 0.4em;
+  vertical-align: top
+}
+
+.fixed-sharing-button--small svg {
+  margin: 0;
+  vertical-align: middle
+}
+
+/* Non solid icons get a stroke */
+.fixed-sharing-button__icon {
+  stroke: #fff;
+  fill: none
+}
+
+/* Solid icons get a fill */
+.fixed-sharing-button__icon--solid,
+.fixed-sharing-button__icon--solidcircle {
+  fill: #fff;
+  stroke: none
+}
+
+.fixed-sharing-button--twitter {
+  background-color: #343431;
+  border-color: transparent;
+}
+
+.fixed-sharing-button--twitter:hover {
+  background-color: #343431;
+  border-color: transparent;
+}
+
+.fixed-sharing-button--pinterest {
+  background-color: #343431;
+  border-color: transparent;
+}
+
+.fixed-sharing-button--pinterest:hover {
+  background-color: #343431;
+  border-color: transparent;
+}
+
+.fixed-sharing-button--facebook {
+  background-color: #343431;
+  border-color: transparent;
+}
+
+.fixed-sharing-button--facebook:hover {
+  background-color: #343431;
+  border-color: transparent;
+}
+
+.fixed-sharing-button--tumblr {
+  background-color: #343431;
+  border-color: transparent;
+}
+
+.fixed-sharing-button--tumblr:hover {
+  background-color: #343431;
+  border-color: transparent;
+}
+
+.fixed-sharing-button--reddit {
+  background-color: #343431;
+  border-color: transparent;
+}
+
+.fixed-sharing-button--reddit:hover {
+  background-color: #343431;
+  border-color: transparent;
+}
+
+.fixed-sharing-button--google {
+  background-color: #343431;
+  border-color: transparent;
+}
+
+.fixed-sharing-button--google:hover {
+  background-color: #343431;
+  border-color: transparent;
+}
+
+.fixed-sharing-button--linkedin {
+  background-color: #343431;
+  border-color: transparent;
+}
+
+.fixed-sharing-button--linkedin:hover {
+  background-color: #343431;
+  border-color: transparent;
+}
+
+.fixed-sharing-button--email {
+  background-color: #343431;
+  border-color: transparent;
+}
+
+.fixed-sharing-button--email:hover {
+  background-color: #343431;
+  border-color: transparent;
+}
+
+.fixed-sharing-button--xing {
+  background-color: #343431;
+  border-color: transparent;
+}
+
+.fixed-sharing-button--xing:hover {
+  background-color: #343431;
+  border-color: transparent;
+}
+
+.fixed-sharing-button--whatsapp {
+  background-color: #343431;
+  border-color: transparent;
+}
+
+.fixed-sharing-button--whatsapp:hover {
+  background-color: #343431;
+  border-color: transparent;
+}
+
+.fixed-sharing-button--hackernews {
+  background-color: #343431;
+  border-color: transparent;
+}
+
+.fixed-sharing-button--hackernews:hover,
+.fixed-sharing-button--hackernews:focus {
+  background-color: #343431;
+  border-color: transparent;
+}
+
+.fixed-sharing-button--vk {
+  background-color: #343431;
+  border-color: transparent;
+}
+
+.fixed-sharing-button--vk:hover {
+  background-color: #343431;
+  border-color: transparent;
+}
+
+.fixed-sharing-button--facebook {
+  background-color: #343431;
+  border-color: transparent;
+}
+
+.fixed-sharing-button--facebook:hover,
+.fixed-sharing-button--facebook:active {
+  background-color: #343431;
+  border-color: transparent;
+}
+
+.fixed-sharing-button--twitter {
+  background-color: #343431;
+  border-color: transparent;
+}
+
+.fixed-sharing-button--twitter:hover,
+.fixed-sharing-button--twitter:active {
+  background-color: #343431;
+  border-color: transparent;
+}
+
+.fixed-sharing-button--email {
+  background-color: #343431;
+  border-color: transparent;
+}
+
+.fixed-sharing-button--email:hover,
+.fixed-sharing-button--email:active {
+  background-color: #343431;
+  border-color: transparent;
+}
+
+.fixed-sharing-button--linkedin {
+  background-color: #343431;
+  border-color: transparent;
+}
+
+.fixed-sharing-button--linkedin:hover,
+.fixed-sharing-button--linkedin:active {
+  background-color: #343431;
+  border-color: transparent;
+}
+
+.fixed-sharing-button--reddit {
+  background-color: #343431;
+  border-color: transparent;
+}
+
+.fixed-sharing-button--reddit:hover,
+.fixed-sharing-button--reddit:active {
+  background-color: #343431;
+  border-color: transparent;
+}
+
+.fixed-sharing-button--whatsapp {
+  background-color: #343431;
+  border-color: transparent;
+}
+
+.fixed-sharing-button--whatsapp:hover,
+.fixed-sharing-button--whatsapp:active {
+  background-color: #343431;
+  border-color: transparent;
+}
+
+.fixed-sharing-button--hackernews {
+  background-color: #343431;
+  border-color: transparent;
+}
+
+.fixed-sharing-button--hackernews:hover .fixed-sharing-button--hackernews:active {
+  background-color: #343431;
+  border-color: transparent;
+}
+
+.fixed-sharing-button--telegram {
+  background-color: #343431;
+  border-color: transparent;
+}
+
+.fixed-sharing-button--telegram:hover {
+  background-color: #343431;
+  border-color: transparent;
 }

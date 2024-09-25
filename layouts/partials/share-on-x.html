@@ -35,12 +35,6 @@
   {{/* urlquery is undocumented, but maybe should be used here instead */}}
   {{ $pageTitle := .LinkTitle | safeHTML }}
 
-  {{ $buttonMargin := "0.5em" }}
-  {{ if (isset .Site.Params.ShareButtons "buttonmargin" ) }}
-    {{ $buttonMargin = .Site.Params.ShareButtons.ButtonMargin }}
-  {{ end }}
-
-
   <div class="share-buttons-container">
     {{ if in .Site.Params.ShareButtons.Networks "twitter" }}
       <!-- Sharingbutton Twitter -->

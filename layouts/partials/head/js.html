@@ -8,6 +8,8 @@
   {{ $scripts = $scripts | append "js/search.js" }}
 {{ end }}
 
+{{ $scripts = $scripts | append "js/top.js" }}
+
 {{ range $scripts }}
   {{ with resources.Get . }}
     {{ with . | js.Build }}
