@@ -1396,7 +1396,6 @@ pre code::-webkit-scrollbar-thumb:hover {
 .back-to-top-button__icon svg {
   width: 1.5em;
   height: 1.5em;
-  margin-right: 0.4em;
   vertical-align: middle;
 }
 
@@ -1464,6 +1463,7 @@ pre code::-webkit-scrollbar-thumb:hover {
   display: flex;
   justify-content: center;
   align-items: center;
+  margin-bottom: 4vh;
 }
 
 .fixed-sharing-button__link,
