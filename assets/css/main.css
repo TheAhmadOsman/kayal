@@ -1286,7 +1286,7 @@ pre code::-webkit-scrollbar-thumb:hover {
   position: fixed;
   bottom: 5vh;
   /* Use vh unit for responsive vertical positioning */
-  right: 2vw;
+  left: 2vw;
   /* Use vw unit for responsive horizontal positioning */
   width: 10vw;
   /* Set a responsive width */
@@ -1294,7 +1294,7 @@ pre code::-webkit-scrollbar-thumb:hover {
   /* Limit maximum width */
   min-width: 120px;
   /* Ensure a minimum width */
-  text-align: right;
+  text-align: left;
   transform: none;
   /* Remove transform as it's not needed with bottom positioning */
 }
@@ -1376,7 +1376,7 @@ pre code::-webkit-scrollbar-thumb:hover {
   position: fixed;
   bottom: 5vh;
   /* Use vh unit for responsive vertical positioning */
-  left: 2vw;
+  right: 2vw;
   /* Use vw unit for responsive horizontal positioning */
   width: 10vw;
   /* Set a responsive width */
@@ -1384,7 +1384,7 @@ pre code::-webkit-scrollbar-thumb:hover {
   /* Limit maximum width */
   min-width: 120px;
   /* Ensure a minimum width */
-  text-align: left;
+  text-align: right;
   /* Remove transform as it's not needed with bottom positioning */
   transform: none;
 }
