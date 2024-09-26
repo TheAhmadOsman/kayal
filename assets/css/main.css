@@ -720,8 +720,10 @@ body:not(.dark) #sun {
 }
 
 .tags a:hover {
-  background: var(--secondary-color);
-  color: var(--primary-color);
+  /* background: var(--secondary-color); */
+  /* color: var(--primary-color); */
+  background: #343431;
+  color: #efefe6;
 }
 
 .draft-lbl {
