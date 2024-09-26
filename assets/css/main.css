@@ -720,7 +720,7 @@ body:not(.dark) #sun {
 }
 
 .tags a:hover {
-  background: var(--link-color);
+  background: var(--secondary-color);
   color: var(--primary-color);
 }
 
