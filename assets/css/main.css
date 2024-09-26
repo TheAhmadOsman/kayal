@@ -1282,7 +1282,7 @@ pre code::-webkit-scrollbar-thumb:hover {
   stroke: #fff;
 }
 
-.share-buttons-container {
+.floating-share-buttons-container {
   position: fixed;
   bottom: 5vh;
   /* Use vh unit for responsive vertical positioning */
@@ -1300,7 +1300,7 @@ pre code::-webkit-scrollbar-thumb:hover {
 }
 
 /* Ensure the content inside the container scales properly */
-.share-buttons-container * {
+.floating-share-buttons-container * {
   font-size: 16px;
   /* Use viewport-relative font size */
   max-font-size: 16px;
@@ -1372,6 +1372,33 @@ pre code::-webkit-scrollbar-thumb:hover {
 }
 
 /* Back to Top Button */
+.back-to-top-container {
+  position: fixed;
+  bottom: 5vh;
+  /* Use vh unit for responsive vertical positioning */
+  left: 2vw;
+  /* Use vw unit for responsive horizontal positioning */
+  width: 10vw;
+  /* Set a responsive width */
+  max-width: 180px;
+  /* Limit maximum width */
+  min-width: 120px;
+  /* Ensure a minimum width */
+  text-align: left;
+  /* Remove transform as it's not needed with bottom positioning */
+  transform: none;
+}
+
+/* Ensure the content inside the container scales properly */
+.back-to-top-container * {
+  font-size: 16px;
+  /* Ensure a minimum width */
+  max-font-size: 16px;
+  /* Cap the maximum font size */
+  min-font-size: 12px;
+  /* Ensure a minimum font size */
+}
+
 .back-to-top-button__link,
 .back-to-top-button__icon {
   display: inline-block;
@@ -1395,7 +1422,7 @@ pre code::-webkit-scrollbar-thumb:hover {
 
 .back-to-top-button__icon svg {
   width: 1.5em;
-  height: 1.5em;
+  height: 2.4em;
   vertical-align: middle;
 }
 
@@ -1407,33 +1434,6 @@ pre code::-webkit-scrollbar-thumb:hover {
 /* Non solid icons get a stroke */
 .back-to-top-button__icon {
   stroke: #fff;
-}
-
-.back-to-top-container {
-  position: fixed;
-  bottom: 5vh;
-  /* Use vh unit for responsive vertical positioning */
-  left: 2vw;
-  /* Use vw unit for responsive horizontal positioning */
-  width: 10vw;
-  /* Set a responsive width */
-  max-width: 180px;
-  /* Limit maximum width */
-  min-width: 120px;
-  /* Ensure a minimum width */
-  text-align: left;
-  /* Remove transform as it's not needed with bottom positioning */
-  transform: none;
-}
-
-/* Ensure the content inside the container scales properly */
-.back-to-top-container * {
-  font-size :16px;
-  /* Ensure a minimum width */
-  max-font-size :16px;
-  /* Cap the maximum font size */
-  min-font-size :12px;
-  /* Ensure a minimum font size */
 }
 
 /* Solid icons get a fill */

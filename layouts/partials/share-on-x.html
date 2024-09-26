@@ -35,7 +35,7 @@
   {{/* urlquery is undocumented, but maybe should be used here instead */}}
   {{ $pageTitle := .LinkTitle | safeHTML }}
 
-  <div class="share-buttons-container">
+  <div class="floating-share-buttons-container">
     {{ if in .Site.Params.ShareButtons.Networks "twitter" }}
       <!-- Sharingbutton Twitter -->
       <a
