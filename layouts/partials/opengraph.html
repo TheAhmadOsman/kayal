@@ -1,5 +1,3 @@
-<!-- {{ template "_internal/opengraph.html" . }} -->
-
 {{- $title := .Title | emojify -}}
 {{- if .Params.Subtitle }}
   {{- $title = printf "%s: %s" $title (.Params.Subtitle | emojify) -}}
