@@ -51,6 +51,7 @@ function openSearch() {
   if (!isSearchOpen) {
     searchCntr.style.display = "flex";
     document.body.style.overflow = "hidden";
+    resultCntr.innerHTML = "";
     isSearchOpen = true;
     searchTxt.focus();
   }
@@ -60,6 +61,7 @@ function closeSearch() {
   if (isSearchOpen) {
     searchCntr.style.display = "none";
     document.body.style.overflow = "";
+    searchTxt.value = "";
     isSearchOpen = false;
   }
 }
@@ -67,22 +69,32 @@ function closeSearch() {
 function executeQuery(query) {
   let results = fuse.search(query);
   let resultsHtml = "";
-  if (results.length > 1) {
+  if (results.length >= 1) {
     results.forEach(function (value, key) {
       var meta = value.item.section + " | ";
-      meta = meta + value.item.date ? value.item.date + " | " : "";
-      meta = meta + `<span class="srch-link">${value.item.permalink}</span>`;
+      meta = meta + value.item.date ? value.item.date + " | ": "";
+      meta = meta + `<span class="srch-link">${value.item.permalink}</span>`
+
+      // Highlight search results
+      const markedTitle = value.item.title.replace(RegExp(`(${query})`, 'gi'), "<mark>$1</mark>");
+      const markedSummary = value.item.summary.replace(RegExp(`(${query})`, 'gi'), "<mark>$1</mark>");
+
       resultsHtml =
         resultsHtml +
         `<li><a href="${value.item.permalink}">
-          <p class="srch-title">${value.item.title}</p>
+          <p class="srch-title">${markedTitle}</p>
           <p class="srch-meta">${meta}</p>
-          <p class="srch-smry">${value.item.summary}</p>
+          <p class="srch-smry">${markedSummary}</p>
         </a></li>`;
     });
     isResEmpty = false;
   } else {
-    resultsHtml = "";
+    if(query === ""){
+      resultsHtml = "";
+    }
+    else{
+      resultsHtml = `<p style="padding-left:0.5em;">No results for <em>${query}</em></p>`;
+    }
     isResEmpty = true;
   }
 
@@ -98,7 +110,10 @@ window.addEventListener("DOMContentLoaded", (event) => {
   searchTxt = document.getElementById("search-query");
 
   seachOpnBtn.addEventListener("click", openSearch);
-  closeBtn.addEventListener("click", closeSearch);
+  closeBtn.addEventListener("click", (event) => {
+    event.preventDefault();
+    closeSearch();
+  });
 
   searchTxt.onkeyup = function (event) {
     executeQuery(this.value);
@@ -114,7 +129,7 @@ window.addEventListener("DOMContentLoaded", (event) => {
 });
 
 document.addEventListener("keydown", function (event) {
-  if (event.key == "/") {
+  if (event.key == "/"  && !isSearchOpen) {
     event.preventDefault();
     openSearch();
   }
@@ -147,4 +162,9 @@ document.addEventListener("keydown", function (event) {
       event.preventDefault();
     }
   }
+});
+
+// Clicking outside the search area will close the search.
+document.getElementById("search-overlay").addEventListener("click", () => {
+  closeSearch();
 });

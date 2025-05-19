@@ -1,11 +1,11 @@
 function toggleTheme() {
-  if (document.body.className.includes("dark")) {
-    document.body.classList.remove("dark");
-    localStorage.setItem("theme", "light");
-  } else {
-    document.body.classList.add("dark");
-    localStorage.setItem("theme", "dark");
-  }
+    if (document.documentElement.className.includes('dark')) {
+        document.documentElement.classList.remove('dark');
+        localStorage.setItem('theme', 'light');
+    } else {
+        document.documentElement.classList.add('dark');
+        localStorage.setItem('theme', 'dark');
+    }
 }
 
 window.addEventListener("DOMContentLoaded", (event) => {

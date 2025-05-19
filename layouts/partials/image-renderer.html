@@ -4,6 +4,7 @@
 {{ $caption := .Caption }}
 {{ $style := .Style }}
 {{ $size := .Size }}
+{{ $loading := .Loading }}
 
 {{/* Exclude types list */}}
 {{ $excludeTypes := slice "svg" }}
@@ -22,17 +23,33 @@
   {{ end }}
 
   {{ with $imgResrc }}
-    <img loading="lazy" {{ with $style }}class="{{ . }}"{{ end }}
+    <img loading="{{ $loading }}" {{ with $style }}class="{{ . }}"{{ end }}
+
     {{ if and $optimizeImg (not (in $excludeTypes .MediaType.SubType)) }}
       {{ if $size }}
-        src="{{ (.Fit $size).RelPermalink }}"
+        {{/* Handle different size formats like ?x130 or 130x? */}}
+        {{ $sizeParts := split $size "x" }}
+        {{ if eq (len $sizeParts) 2 }}
+          {{ $width := index $sizeParts 0 }}
+          {{ $height := index $sizeParts 1 }}
+          {{ if and (ne $width "") (ne $height "") }}
+            src="{{ (.Resize $size).RelPermalink }}"
+          {{ else if ne $width "" }}
+            src="{{ (.Resize (printf "%sx" $width)).RelPermalink }}"
+          {{ else if ne $height "" }}
+            src="{{ (.Resize (printf "x%s" $height)).RelPermalink }}"
+          {{ end }}
+        {{ else }}
+          {{/* Default fallback if size format is not recognized */}}
+          srcset="
+          {{ (.Resize "330x").RelPermalink }} 330w,
+          {{ (.Resize "660x").RelPermalink }} 660w,
+          {{ (.Resize "1024x").RelPermalink }} 1024w,
+          {{ (.Resize "1320x").RelPermalink }} 2x"
+          src="{{ (.Resize "660x").RelPermalink }}"
+        {{ end }}
       {{ else }}
-        srcset="
-        {{ (.Resize "330x").RelPermalink }} 330w,
-        {{ (.Resize "660x").RelPermalink }} 660w,
-        {{ (.Resize "1024x").RelPermalink }} 1024w,
-        {{ (.Resize "1320x").RelPermalink }} 2x"
-        src="{{ (.Resize "660x").RelPermalink }}"
+        src="{{ .RelPermalink }}"
       {{ end }}
     {{ else }}
       src="{{ .RelPermalink }}"
@@ -41,7 +58,7 @@
   {{ end }}
 
 {{ else }}
-  <img loading="lazy" src="{{ $url.String }}" alt="{{ $altText }}" />
+  <img loading="{{ $loading }}" src="{{ $url.String }}" alt="{{ $altText }}" />
 {{ end }}
 <!-- TODO: Caption styling goes here -->
 {{ with $caption }}<figcaption>{{ . | markdownify }}</figcaption></figure>{{ end }}

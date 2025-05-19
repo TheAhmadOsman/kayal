@@ -5,19 +5,6 @@
 >
   {{ partial "head.html" . }}
   <body>
-    <script>
-      const siteTheme = "{{ .Site.Params.defaultTheme | default "auto" }}";
-      let savedTheme = localStorage.getItem('theme') || siteTheme;
-      if (savedTheme == 'auto') {
-        if ( window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ) {
-          savedTheme = 'dark';
-        }
-      }
-      if (savedTheme === "dark") {
-        document.body.classList.add('dark');
-        localStorage.setItem('theme', 'dark');
-      }
-    </script>
     <div class="content">
       {{ partial "header.html" . }}
       <main>
@@ -25,6 +12,7 @@
       </main>
       {{ partial "footer.html" . }}
     </div>
-  {{ partial "back-to-top" . }}
+    {{ partial "back-to-top" . }}
+    {{ partialCached "head/js.html" . }}
   </body>
 </html>

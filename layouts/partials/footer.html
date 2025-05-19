@@ -32,6 +32,9 @@
       </ul>
     </div>
   {{ end }}
+  {{ if .Site.Params.lastUpdate }}
+  <div>Last update {{ now.Format "Jan 2, 2006" }}</div>
+  {{ end }}
 </footer>
 
 {{ if not .Site.Params.removeAttribution }}

@@ -1,7 +1,9 @@
 {{ $showDate := .showDate }}
+{{ $showThumbnail := .Params.showThumbnail | default (.Site.Params.list.showThumbnail | default false) }}
 {{ $lvl := .lvl }}
 {{ with .page }}
 <li>
+    <div>
     <h{{$lvl}}>
     {{ with .Params.externalUrl }}
         <a href="{{ . }}" target="_blank" rel="external">
@@ -18,5 +20,14 @@
     {{ end }}
 
     {{ template "partials/home/pg-desc.html" . }}
+    </div>
+
+    <!-- Thumbnail - Use coverImg as thumbnail -->
+    {{ if $showThumbnail }}
+        {{ if .Params.coverImg }}
+            {{ $imgData := dict "Page" . "URL" .Params.coverImg "Alt" .LinkTitle "Size" "x150" "Style" "thumbnail" }}
+            {{ partial "image-renderer.html" $imgData }}
+        {{ end }}
+    {{ end }}
 </li>
 {{ end }}
